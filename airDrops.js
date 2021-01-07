@@ -17,6 +17,8 @@ $(function(){
         var documentHeight = $(document).height(),
             documentWidth = $(document).width(),
             defaults = {
+                pendType:'append',
+                pendTo:'body',
                 dropType: 'rain',
                 minSize: 1,
                 offsetSize: 10,
@@ -58,7 +60,9 @@ $(function(){
         var getDropTemplate = function(idx){
             icon = icons[idx];
             return $('<div class="airDropsBox" />')
-                .css({'position': 'absolute','z-index':'9999', 'top': '-50px'}).html(icon);
+                .css({'position': 'absolute'
+//                ,'z-index':'9999'
+                , 'top': '-50px'}).html(icon);
         };
         var idxA = getIdx(0), idxB = getIdx(idxA);
         var $dropA = getDropTemplate(idxA),
@@ -75,7 +79,12 @@ $(function(){
                 endPositionLeft = startPositionLeft - 500 + Math.random() * 500,
                 durationFall = (5000 * options.minSize) + (Math.random() * 5 * options.newIn);
             var $drop = (parseInt(Math.random(2) * 100) % 2 == 0 ? $dropA : $dropB);
-            $drop.clone().appendTo('body').css({
+            var isAppend = (options.pendType == 'append');
+            var zIndex = isAppend? '9999': 'auto';
+            var $dropClone = isAppend
+                ? $drop.clone().appendTo(options.pendTo)
+                : $drop.clone().prependTo(options.pendTo);
+            $dropClone.css({
                 left: startPositionLeft,
                 opacity: startOpacity,
                 'font-size': sizeDrop,
@@ -83,6 +92,7 @@ $(function(){
             }).animate({
                 top: endPositionTop,
                 left: endPositionLeft,
+                'z-index':zIndex,
                 opacity: 0.2
             },durationFall,'linear', function(){
                 $(this).remove()
