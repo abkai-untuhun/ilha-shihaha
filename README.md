@@ -1,8 +1,6 @@
 # ilha-shihaha
 drops in the air, a js project
 
-Welcome to the ilha-shihaha wiki!
-
 # Ilha-shihaha means the falling of the flowers.
 
 This javascript based project, ilha-shihaha, allows users to add flower drop effect on their pages.
