@@ -1,2 +1,2 @@
 # ilha-shihaha
-drops in the aire, a js project
+drops in the air, a js project
