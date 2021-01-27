@@ -9,7 +9,7 @@ It also includes snow drop effect and rain drop effect, which makes the effects 
 
 # How to
 
-First include the .js file to your page by adding <script type="text/javascript" src="src/js/ilha-shihaha/air-drop.min.js"></script>
+First include the .js file to your page by adding <script type="text/javascript" src="src/js/ilha-shihaha/airDrops.min.js"></script>
 
 Second call the function in your javascript code, for example:
 
